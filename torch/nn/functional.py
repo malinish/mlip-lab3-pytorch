@@ -3241,6 +3241,8 @@ def smooth_l1_loss(
 
     See :class:`~torch.nn.SmoothL1Loss` for details.
     """
+    if reduction == "sum":
+        raise Exception("sum reduction")
     if has_torch_function_variadic(input, target):
         return handle_torch_function(
             smooth_l1_loss,
